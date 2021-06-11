@@ -1,0 +1,71 @@
+{
+  "name": "stylelint-config",
+  "displayName": "StylelintConfig for VS Code",
+  "description": "Generate .stylelintrc.js & .stylelintignore in the workspace",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.46.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "license": "MIT",
+  "activationEvents": [
+    "onCommand:stylelint-config"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "stylelint-config",
+        "title": "Generate .stylelintrc"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "stylelint-config",
+          "when": "explorerResourceIsFolder",
+          "group": "EditorConfig@3"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "set configBasedir",
+      "properties": {
+        "stylelint-config.path": {
+          "type": [
+            "string",
+            "boolean"
+          ],
+          "default": true,
+          "description": "set configBasedir",
+          "scope": "resource"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.46.0",
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "eslint": "^7.19.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.2.1",
+    "typescript": "^4.1.3",
+    "vscode-test": "^1.5.0"
+  },
+  "publisher": "whosydd",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/whosydd/stylelint-config.git"
+  },
+  "icon": "assets/stylelint.png"
+}
