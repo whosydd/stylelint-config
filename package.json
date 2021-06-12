@@ -2,7 +2,7 @@
   "name": "stylelint-config",
   "displayName": "StylelintConfig for VS Code",
   "description": "Generate .stylelintrc.js & .stylelintignore in the workspace",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "engines": {
     "vscode": "^1.46.0"
   },
@@ -29,21 +29,6 @@
           "group": "EditorConfig@3"
         }
       ]
-    },
-    "configuration": {
-      "type": "object",
-      "title": "set configBasedir",
-      "properties": {
-        "stylelint-config.path": {
-          "type": [
-            "string",
-            "boolean"
-          ],
-          "default": true,
-          "description": "set configBasedir",
-          "scope": "resource"
-        }
-      }
     }
   },
   "scripts": {
