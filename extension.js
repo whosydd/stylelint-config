@@ -30,7 +30,7 @@ build/`
 function activate(context) {
   let disposable = vscode.commands.registerCommand('stylelint-config', async function (folder) {
     // 生成配置文件
-    const workspace = folder._fsPath
+    const workspace = folder.fsPath
     if (
       !fs.existsSync(
         `${workspace}/.stylelintrc.js` ||
