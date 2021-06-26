@@ -40,6 +40,26 @@ function activate(context) {
     ) {
       fs.writeFileSync(`${workspace}/.stylelintrc.js`, stylelintrc)
       fs.writeFileSync(`${workspace}/.stylelintignore`, ignore)
+      vscode.window
+        .showInformationMessage('Do you need to install dependencies?', 'Install', 'Already Done')
+        .then(answer => {
+          if (answer === 'Install') {
+            const terminal = vscode.window.createTerminal({
+              name: 'stylelint',
+              // hideFromUser: true,
+            })
+            vscode.commands.executeCommand('workbench.action.terminal.toggleTerminal')
+            try {
+              terminal.sendText(
+                `npm i -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier`
+              )
+            } catch (err) {
+              vscode.window.showErrorMessage(
+                `请手动安装依赖！"npm i -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier"`
+              )
+            }
+          }
+        })
     } else {
       vscode.window.showErrorMessage('An .stylelintrc file already exists in this workspace.')
     }
