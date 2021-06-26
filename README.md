@@ -7,6 +7,10 @@
 - stylelint-config-recess-order
 - stylelint-config-prettier
 
+## ExtensionDependencies
+
+- [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+
 ## Usage
 
 ![npm](https://i.loli.net/2021/06/26/Hua47PB6cznrCY9.gif)
@@ -36,7 +40,6 @@ module.exports = {
     'at-rule-no-unknown': null,
   },
 }
-
 ```
 
 ### .stylelintignore
@@ -51,4 +54,3 @@ test/
 dist/
 build/
 ```
-
