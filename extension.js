@@ -48,7 +48,7 @@ function activate(context) {
               name: 'stylelint',
               // hideFromUser: true,
             })
-            vscode.commands.executeCommand('workbench.action.terminal.toggleTerminal')
+            terminal.show()
             try {
               terminal.sendText(
                 `npm i -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier`
@@ -61,7 +61,7 @@ function activate(context) {
           }
         })
     } else {
-      vscode.window.showErrorMessage('An .stylelintrc file already exists in this workspace.')
+      vscode.window.showWarningMessage('An .stylelintrc file already exists in this workspace.')
     }
   })
 
