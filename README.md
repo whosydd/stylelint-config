@@ -13,7 +13,7 @@
 
 ## Usage
 
-![npm](https://i.loli.net/2021/06/26/Hua47PB6cznrCY9.gif)
+![](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210704000713.gif)
 
 A new `.stylelintrc.js` file and a new `.stylelintignore` file can be created via the Explorer sidebar's context menu by right-clicking in the folder where you'd like it to be and selecting `Generate .stylelintrc`.
 
@@ -21,7 +21,7 @@ A new `.stylelintrc.js` file and a new `.stylelintignore` file can be created vi
 
 If you use `npm i -g` to install dependencies, **maybe** you need set `stylelint.configBasedir` in `settings.json`
 
-![configBasedir](https://i.loli.net/2021/06/11/QydSMZ57vnxmiRa.png)
+![](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210704000708.PNG)
 
 ## Configuration
 

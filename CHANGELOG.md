@@ -2,6 +2,10 @@
 
 All notable changes to the "stylelint-config" extension will be documented in this file.
 
+## [0.2.3]
+
+- 更换图床
+
 ## [0.2.2]
 
 - 优化体验
