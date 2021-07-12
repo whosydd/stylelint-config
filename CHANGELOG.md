@@ -2,6 +2,12 @@
 
 All notable changes to the "stylelint-config" extension will be documented in this file.
 
+## [1.0.0]
+
+- 添加配置项
+  - 配置 gist 地址后，将通过 wget 直接从 gist 下载配置文件
+  - 可以通过配置`stylelint-config.tip`选择是否显示`install dependencies` 的提示
+
 ## [0.2.3]
 
 - 更换图床
