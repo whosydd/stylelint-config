@@ -12,7 +12,10 @@ function activate(context) {
     const { configUrl, ignoreUrl } = res
 
     // 获取工作区路径
-    const workspace = folder.fsPath
+    let workspace
+    if (!folder) {
+      workspace = vscode.workspace.workspaceFolders[0].uri.fsPath
+    } else workspace = folder.fsPath
 
     // 复制源文件
     function copyHandle() {

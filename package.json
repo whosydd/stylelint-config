@@ -17,9 +17,9 @@
   "contributes": {
     "commands": [
       {
-        "command": "stylelint-config",
-        "category": "StylelintConfig",
-        "title": "Generate .stylelintrc"
+        "title": "Generate .stylelintrc",
+        "category": "stylelint-config",
+        "command": "stylelint-config"
       }
     ],
     "menus": {
