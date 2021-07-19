@@ -2,6 +2,11 @@
 
 All notable changes to the "stylelint-config" extension will be documented in this file.
 
+## [1.1.1]
+
+- 优化体验
+- fixed bug
+
 ## [1.1.0]
 
 - 优化体验
