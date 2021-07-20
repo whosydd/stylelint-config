@@ -2,7 +2,7 @@
   "name": "stylelint-config",
   "displayName": "StylelintConfig for VS Code",
   "description": "Generate .stylelintrc.js & .stylelintignore in the workspace",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "engines": {
     "vscode": "^1.57.0"
   },

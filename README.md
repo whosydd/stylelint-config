@@ -33,7 +33,9 @@
 
 可以选择在[gist](https://gist.github.com/)上添加`.stylelintrc.js`以及`.stylelintignore`，将`gist_id`添加到配置项中，扩展会通过`ajax`请求获取相应配置文件
 
-#### 获取`gist_id`:![Capture](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210719143245.PNG)
+#### 获取`gist_id`:
+
+![Capture](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210719143245.PNG)
 
 ### Tip
 
