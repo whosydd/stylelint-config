@@ -88,9 +88,14 @@ async function activate(context) {
     function tip() {
       if (!flag) return
       vscode.window
-        .showInformationMessage('Do you need to install dependencies?', 'Install', 'Already Done')
+        .showInformationMessage(
+          'Do you need to install dependencies?',
+          'npm install',
+          'yarn add',
+          'Already Done'
+        )
         .then(answer => {
-          if (answer === 'Install') {
+          if (answer === 'npm install') {
             const terminal = vscode.window.createTerminal({
               name: 'stylelint',
             })
@@ -102,6 +107,21 @@ async function activate(context) {
             } catch (err) {
               vscode.window.showErrorMessage(
                 `请手动安装依赖！"npm i -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier"`
+              )
+            }
+          }
+          if (answer === 'yarn add') {
+            const terminal = vscode.window.createTerminal({
+              name: 'stylelint',
+            })
+            terminal.show()
+            try {
+              terminal.sendText(
+                `yarn add -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier`
+              )
+            } catch (err) {
+              vscode.window.showErrorMessage(
+                `请手动安装依赖！"yarn add -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier"`
               )
             }
           }
