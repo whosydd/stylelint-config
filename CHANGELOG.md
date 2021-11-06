@@ -2,9 +2,9 @@
 
 All notable changes to the "stylelint-config" extension will be documented in this file.
 
-## [1.1.3]
+## [1.2.0]
 
-- 添加支持`yarn add`安装
+- 添加功能：工作区如果存在多个文件夹，提示可选文件夹
 
 ## [1.1.2]
 
