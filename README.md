@@ -53,7 +53,7 @@ npm i -D stylelint stylelint-config-standard stylelint-config-recess-order style
 
 ### Default
 
-默认情况下，将直接从扩展的`src`目录复制以下配置文件
+默认情况下，将直接从扩展的`template`目录复制以下配置文件
 
 #### .stylelintrc.js
 
