@@ -2,6 +2,10 @@
 
 All notable changes to the "stylelint-config" extension will be documented in this file.
 
+## [1.3.0]
+
+- add pnpm
+
 ## [1.2.0]
 
 - 添加功能：工作区如果存在多个文件夹，提示可选文件夹
