@@ -109,6 +109,7 @@ async function activate(context) {
           'Do you need to install dependencies?',
           'npm install',
           'yarn add',
+          'pnpm add',
           'Already Done'
         )
         .then(answer => {
@@ -139,6 +140,21 @@ async function activate(context) {
             } catch (err) {
               vscode.window.showErrorMessage(
                 `请手动安装依赖！"yarn add -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier"`
+              )
+            }
+          }
+          if (answer === 'pnpm add') {
+            const terminal = vscode.window.createTerminal({
+              name: 'stylelint',
+            })
+            terminal.show()
+            try {
+              terminal.sendText(
+                `pnpm add -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier`
+              )
+            } catch (err) {
+              vscode.window.showErrorMessage(
+                `请手动安装依赖！"pnpm add -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier"`
               )
             }
           }
