@@ -5,6 +5,7 @@ All notable changes to the "stylelint-config" extension will be documented in th
 ## [1.3.0]
 
 - add pnpm
+- 添加配置项：现在需要在`settings`中配置默认包管理工具（首次使用会弹出选项框）
 
 ## [1.2.0]
 
