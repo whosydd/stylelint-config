@@ -19,6 +19,18 @@
 
 ## Configuration
 
+### 1.3.0 new！
+
+You will see this when you choice `Install`
+
+![image-20221003001553347](https://raw.githubusercontent.com/whosydd/images-in-one/main/images/202210030015375.png)
+
+Or you can config this in your `settings.json`
+
+```json
+"stylelint-config.tool": "npm"
+```
+
 ### Sync from gist
 
 ```json
