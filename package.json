@@ -59,6 +59,15 @@
           "type": "boolean",
           "default": true,
           "description": "Toggle whether to display the prompt to install dependencies."
+        },
+        "stylelint-config.tool": {
+          "type": "string",
+          "enum": [
+            "npm",
+            "yarn",
+            "pnpm"
+          ],
+          "description": "You can set yarn or pnpm. Default is npm."
         }
       }
     }
