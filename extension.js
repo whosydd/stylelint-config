@@ -112,12 +112,11 @@ async function activate(context) {
           if (answer === 'Install') {
             // 确定参数
             if (tool === '' || tool === undefined) {
-              tipConfigFormat()
               return
             }
             let param
             tool === 'npm' ? (param = 'i') : (param = 'add')
-            let command = `${tool} ${param} -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier`
+            let command = `${tool} ${param} -D stylelint stylelint-config-standard stylelint-order postcss-scss`
 
             // 安装依赖
             exec(command)
@@ -155,39 +154,6 @@ module.exports = {
   deactivate,
 }
 
-// new config tip
-const tipConfigFormat = () => {
-  vscode.window
-    .showInformationMessage(
-      'StylelintConfig for VS Code 1.3.0 NEW!',
-      {
-        modal: true,
-        detail: `Now you need to decide which one do you want.
-        It will be added to your settings.
-        
-        For details, please refer to the extension page.`,
-      },
-      'npm',
-      'yarn',
-      'pnpm'
-    )
-    .then(tool => {
-      if (tool === undefined) {
-        return
-      }
-      vscode.workspace.getConfiguration('stylelint-config').update('tool', tool, true)
-
-      let param
-      tool === 'npm' ? (param = 'i') : (param = 'add')
-
-      let command = `${tool} ${param} -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier`
-
-      // 安装依赖
-      exec(command)
-    })
-    .catch(err => vscode.window.showErrorMessage(err))
-}
-
 function exec(command) {
   try {
     const terminal = vscode.window.createTerminal({
@@ -197,7 +163,7 @@ function exec(command) {
     terminal.sendText(command)
   } catch (err) {
     vscode.window.showErrorMessage(
-      `请手动安装依赖！stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier`
+      `请手动安装依赖！stylelint stylelint-config-standard stylelint-order postcss-scss`
     )
   }
 }

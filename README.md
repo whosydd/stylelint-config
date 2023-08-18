@@ -4,8 +4,8 @@
 
 - stylelint
 - stylelint-config-standard
-- stylelint-config-recess-order
-- stylelint-config-prettier
+- stylelint-order
+- postcss-scss
 
 ## ExtensionDependencies
 
@@ -19,16 +19,11 @@
 
 ## Configuration
 
-### 1.3.0 new！
-
-You will see this when you choice `Install`
-
-![image-20221003001553347](https://raw.githubusercontent.com/whosydd/images-in-one/main/images/202210030015375.png)
-
-Or you can config this in your `settings.json`
+### Choose `npm`、 `yarn`、 `pnpm`
 
 ```json
-"stylelint-config.tool": "npm"
+// settings.json
+"stylelint-config.tool": "npm" //default
 ```
 
 ### Sync from gist
@@ -58,7 +53,7 @@ Or you can config this in your `settings.json`
 
 ```bash
 # You can choose to install dependencies manually
-npm i -D stylelint stylelint-config-standard stylelint-config-recess-order stylelint-config-prettier
+npm i -D stylelint stylelint-config-standard stylelint-order postcss-scss
 ```
 
 设置为`false`时，将不再提示`install dependencies`![Capture](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210712125946.PNG)
@@ -69,17 +64,232 @@ npm i -D stylelint stylelint-config-standard stylelint-config-recess-order style
 
 #### .stylelintrc.js
 
+>  配置项参考 https://juejin.cn/post/6940127032932040735
+>
+> order 参考 https://github.com/primer/stylelint-config/blob/main/property-order.js
+>
+> 感谢作者分享！
+
 ```js
 module.exports = {
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-config-recess-order',
-    'stylelint-config-prettier',
+  extends: ['stylelint-config-standard'],
+  plugins: ['stylelint-order'],
+  overrides: [
+    {
+      files: ['**/*.scss'],
+      customSyntax: 'postcss-scss',
+    },
   ],
   rules: {
-    'unit-whitelist': ['em', 'rem', '%', 's', 'px', 'deg'],
+    // 颜色指定大写
+    'color-hex-case': 'upper',
+    // 禁止空块
     'block-no-empty': true,
+    // 颜色6位长度
+    'color-hex-length': 'long',
+    // 兼容自定义标签名
+    'selector-type-no-unknown': [
+      true,
+      {
+        ignoreTypes: [],
+      },
+    ],
+    // 忽略伪类选择器 ::v-deep
+    'selector-pseudo-element-no-unknown': [
+      true,
+      {
+        ignorePseudoElements: ['v-deep'],
+      },
+    ],
+    // 禁止低优先级的选择器出现在高优先级的选择器之后。
+    'no-descending-specificity': null,
+    // 不验证@未知的名字，为了兼容scss的函数
     'at-rule-no-unknown': null,
+    // 禁止空注释
+    'comment-no-empty': true,
+    // 禁止简写属性的冗余值
+    'shorthand-property-no-redundant-values': true,
+    // 禁止值的浏览器引擎前缀
+    'value-no-vendor-prefix': true,
+    // property-no-vendor-prefix
+    'property-no-vendor-prefix': true,
+    // 禁止小于 1 的小数有一个前导零
+    'number-leading-zero': 'never',
+    // 禁止空第一行
+    'no-empty-first-line': true,
+    // 属性的排序
+    'order/properties-order': [
+      'all',
+      'position',
+      'top',
+      'right',
+      'bottom',
+      'left',
+      'z-index',
+      'display',
+      'float',
+      'width',
+      'min-width',
+      'max-width',
+      'height',
+      'min-height',
+      'max-height',
+      'box-sizing',
+      'padding',
+      'padding-top',
+      'padding-right',
+      'padding-bottom',
+      'padding-left',
+      'margin',
+      'margin-top',
+      'margin-right',
+      'margin-bottom',
+      'margin-left',
+      'overflow',
+      'overflow-x',
+      'overflow-y',
+      'clip',
+      'clear',
+      'font',
+      'font-family',
+      'font-size',
+      'font-style',
+      'font-weight',
+      'font-variant',
+      'font-size-adjust',
+      'font-stretch',
+      'font-effect',
+      'font-emphasize',
+      'font-emphasize-position',
+      'font-emphasize-style',
+      'font-smooth',
+      'hyphens',
+      'line-height',
+      'color',
+      'text-align',
+      'text-align-last',
+      'text-emphasis',
+      'text-emphasis-color',
+      'text-emphasis-style',
+      'text-emphasis-position',
+      'text-decoration',
+      'text-indent',
+      'text-justify',
+      'text-outline',
+      'text-overflow',
+      'text-overflow-ellipsis',
+      'text-overflow-mode',
+      'text-shadow',
+      'text-transform',
+      'text-wrap',
+      'letter-spacing',
+      'word-break',
+      'word-spacing',
+      'word-wrap',
+      'tab-size',
+      'white-space',
+      'vertical-align',
+      'list-style',
+      'list-style-position',
+      'list-style-type',
+      'list-style-image',
+      'pointer-events',
+      'fill',
+      'fill-opacity',
+      'stroke',
+      'stroke-opacity',
+      'stroke-width',
+      'shape-rendering',
+      'cursor',
+      'visibility',
+      'zoom',
+      'flex-direction',
+      'flex-order',
+      'flex-pack',
+      'flex-align',
+      'table-layout',
+      'empty-cells',
+      'caption-side',
+      'border-spacing',
+      'border-collapse',
+      'content',
+      'quotes',
+      'counter-reset',
+      'counter-increment',
+      'resize',
+      'user-select',
+      'nav-index',
+      'nav-up',
+      'nav-right',
+      'nav-down',
+      'nav-left',
+      'background',
+      'background-color',
+      'background-image',
+      'filter',
+      'background-repeat',
+      'background-attachment',
+      'background-position',
+      'background-position-x',
+      'background-position-y',
+      'background-clip',
+      'background-origin',
+      'background-size',
+      'border',
+      'border-color',
+      'border-style',
+      'border-width',
+      'border-top',
+      'border-top-color',
+      'border-top-style',
+      'border-top-width',
+      'border-right',
+      'border-right-color',
+      'border-right-style',
+      'border-right-width',
+      'border-bottom',
+      'border-bottom-color',
+      'border-bottom-style',
+      'border-bottom-width',
+      'border-left',
+      'border-left-color',
+      'border-left-style',
+      'border-left-width',
+      'border-radius',
+      'border-top-left-radius',
+      'border-top-right-radius',
+      'border-bottom-right-radius',
+      'border-bottom-left-radius',
+      'border-image',
+      'border-image-source',
+      'border-image-slice',
+      'border-image-width',
+      'border-image-outset',
+      'border-image-repeat',
+      'outline',
+      'outline-width',
+      'outline-style',
+      'outline-color',
+      'outline-offset',
+      'box-shadow',
+      'opacity',
+      'transition',
+      'transition-delay',
+      'transition-timing-function',
+      'transition-duration',
+      'transition-property',
+      'transform',
+      'transform-origin',
+      'animation',
+      'animation-name',
+      'animation-duration',
+      'animation-fill-mode',
+      'animation-play-state',
+      'animation-timing-function',
+      'animation-delay',
+      'animation-iteration-count',
+      'animation-direction',
+    ],
   },
 }
 ```
