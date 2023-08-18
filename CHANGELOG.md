@@ -2,6 +2,11 @@
 
 All notable changes to the "stylelint-config" extension will be documented in this file.
 
+## [1.4.0]
+
+- 修改默认配置文件
+- 添加 scss 支持
+
 ## [1.3.0]
 
 - add pnpm
